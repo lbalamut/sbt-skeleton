@@ -6,14 +6,18 @@ object SkeletonBuild extends Build {
     val sharedSettings = Project.defaultSettings ++ Seq(
         organization        := "eu.balamut",
         version             := "1",
-        scalaVersion        := "2.10.2",
+        scalaVersion        := "2.11.0",
+
+        crossScalaVersions := Seq(scalaVersion.value, "2.10.4"),
 
         libraryDependencies ++= Seq(
-            "org.scalaz" %% "scalaz-core" % "7.0.2",
-            "org.scalatest" %% "scalatest" % "2.0.M5b" % "test"
+            "org.scalaz" %% "scalaz-core" % "7.0.6",
+            "org.scalatest" %% "scalatest" % "2.1.6" % "test"
         ),
 
         libraryDependencies <+= (scalaVersion)("org.scala-lang" % "scala-reflect" % _),
+
+        incOptions := incOptions.value.withNameHashing(true),
 
         resolvers       ++= Seq(
             "snapshots" at "http://oss.sonatype.org/content/repositories/snapshots",
