@@ -6,7 +6,7 @@ object SkeletonBuild extends Build {
     val sharedSettings = Project.defaultSettings ++ Seq(
         organization        := "eu.balamut",
         version             := "1",
-        scalaVersion        := "2.11.0",
+        scalaVersion        := "2.11.1",
 
         crossScalaVersions := Seq(scalaVersion.value, "2.10.4"),
 
